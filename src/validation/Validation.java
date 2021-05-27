@@ -4,7 +4,7 @@ import database.DataBase;
 
 public class Validation {
 
-    public static boolean isValideForEnter(String plate){
+    public static boolean isValidForEnter(String plate){
 
         if (plate.equals("")){
             return false;
@@ -18,7 +18,7 @@ public class Validation {
         return true;
     }
 
-    public static boolean isValideForExit(String plate){
+    public static boolean isValidForExit(String plate){
 
         if (plate.equals("")){
             return false;

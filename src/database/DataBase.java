@@ -84,7 +84,7 @@ public class DataBase {
             }
         }
     }
-
+    //calculate price
     private static void charge(Vehicle vehicle) {
         double duration = (double) (System.currentTimeMillis() - vehicle.getEntranceInstance()) / 3600000;
         System.out.println("You should pay " + vehicle.getChargePerHour() * duration + " euro");

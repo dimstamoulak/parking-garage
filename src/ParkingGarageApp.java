@@ -60,7 +60,7 @@ public class ParkingGarageApp {
             }
         }
     }
-
+    //exit garage:remove vehicle
     private static void exitFromGarage() throws IOException {
 
         String numberPlate;
@@ -68,7 +68,7 @@ public class ParkingGarageApp {
         do {
             System.out.println("Please enter plate of your vehicle: ");
             numberPlate = scanner.readLine();
-            if (Validation.isValideForExit(numberPlate)) {
+            if (Validation.isValidForExit(numberPlate)) {
                 break;
             }
         } while (true);
@@ -76,7 +76,7 @@ public class ParkingGarageApp {
         DataBase.removeVehicle(numberPlate); //remove vehicle
 
     }
-
+    //enter car or motor
     private static void enter() throws IOException {
 
         do {
@@ -89,7 +89,7 @@ public class ParkingGarageApp {
                 do {
                     System.out.println("Please enter plate of your vehicle: ");
                     numberPlate = scanner.readLine();
-                    if (Validation.isValideForEnter(numberPlate)) {
+                    if (Validation.isValidForEnter(numberPlate)) {
                         break;
                     }
                 } while (true);
@@ -116,7 +116,7 @@ public class ParkingGarageApp {
         } while (true);
     }
 
-
+    //method appear menu
     private static void printMenu() {
         System.out.println("\n=========MENU========= \n" +
 
