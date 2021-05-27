@@ -14,27 +14,26 @@ public class ParkingGarageApp {
     private static BufferedReader scanner = new BufferedReader(new InputStreamReader(System.in));
 
     public static void main(String[] args) throws IOException {
-        DataBase.fillData();
+
+
+        DataBase.fillData(); //Initialize Database
 
         boolean flag = true;
 
-        printActions();
+        printMenu(); // Method presents menu
 
 
         while (flag) {
 
             int action;
+
             do {
-                System.out.println("\n...Enter the action: ");
+                System.out.println("\nEnter the action: ");
                 action = Integer.parseInt(scanner.readLine());
                 break;
             } while (true);
 
             switch (action) {
-                case 0:
-                    flag = false;
-                    System.out.println("\n\nShout-down application...");
-                    break;
                 case 1:
                     enter();
                     break;
@@ -50,7 +49,11 @@ public class ParkingGarageApp {
                     }
                     break;
                 case 4:
-                    printActions();
+                    printMenu();
+                    break;
+                case 5:
+                    flag = false;
+                    System.out.println("\n\nApplication closed!");
                     break;
                 default:
                     System.out.println("Wrong input...\n");
@@ -61,6 +64,7 @@ public class ParkingGarageApp {
     private static void exitFromGarage() throws IOException {
 
         String numberPlate;
+
         do {
             System.out.println("Please enter plate of your vehicle: ");
             numberPlate = scanner.readLine();
@@ -69,7 +73,7 @@ public class ParkingGarageApp {
             }
         } while (true);
 
-        DataBase.removeVehicle(numberPlate);
+        DataBase.removeVehicle(numberPlate); //remove vehicle
 
     }
 
@@ -101,7 +105,7 @@ public class ParkingGarageApp {
                         vehicle = new Motorcycle(numberPlate);
                         break;
                     } else {
-                        System.out.println("---->Wrong input, try again<----");
+                        System.out.println("Wrong input, try 'car' or 'motor'");
                     }
                 } while (true);
                 ParkingSpot parkingSpot = DataBase.checkAvailability();
@@ -113,13 +117,14 @@ public class ParkingGarageApp {
     }
 
 
-    private static void printActions() {
-        System.out.println("The available action is: (Press 5 for available action)\n" +
-                "0- Quit\n" +
+    private static void printMenu() {
+        System.out.println("\n=========MENU========= \n" +
+
                 "1- Add a vehicle\n" +
                 "2- Exit from garage\n" +
                 "3- Is the garage full or how may spots are available?\n" +
-                "4- The available action");
+                "4- The available action\n" +
+                "5- Quit\n");
     }
 }
 

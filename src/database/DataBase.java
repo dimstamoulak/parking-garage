@@ -11,7 +11,7 @@ public class DataBase {
 
     public DataBase() {
         fillData();
-    }
+    } //initialize database
 
     public static void fillData(){
 
